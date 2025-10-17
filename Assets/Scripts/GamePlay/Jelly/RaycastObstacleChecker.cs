@@ -4,18 +4,22 @@ public class RaycastObstacleChecker : IObstacleChecker
 {
     public bool HasObstacle(Vector3 origin, Vector3 direction, float distance)
     {
-        if (Physics.Raycast(origin, direction, out RaycastHit hit, distance, ~0))
+        // Sử dụng LayerMask để chỉ hit blocks (giả sử layer "Block")
+        int layerMask = 1 << LayerMask.NameToLayer("Block");
+
+        RaycastHit[] hits = Physics.RaycastAll(origin, direction, distance, layerMask);
+        foreach (RaycastHit hit in hits)
         {
-            Debug.Log($"🚧 Vật cản: {hit.collider.name}");
-            return true;
+            if (hit.collider != null && hit.collider.gameObject != null && hit.collider.gameObject.GetComponent<Block>() != null)
+            {
+                return true;  // Có block khác chặn
+            }
         }
-        return false;
+        return false;  // Không chặn
     }
 
     public void DrawRay(Vector3 origin, Vector3 direction, float distance)
     {
-#if UNITY_EDITOR
-        Debug.DrawRay(origin, direction * distance, Color.yellow);
-#endif
+        // Có thể thêm vẽ hit points nếu cần, nhưng hiện giữ đơn giản
     }
 }

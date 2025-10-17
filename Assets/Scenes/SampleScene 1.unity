@@ -387,6 +387,7 @@ GameObject:
   m_Component:
   - component: {fileID: 768588913}
   - component: {fileID: 768588912}
+  - component: {fileID: 768588914}
   m_Layer: 0
   m_Name: GridManager
   m_TagString: Untagged
@@ -406,10 +407,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7f5a6a48dfbb4d4e8824b8e964300ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blockPrefab: {fileID: 1055237597521334337, guid: 9b25d57e17122794f9f4245517765b41, type: 3}
-  sparklePrefab: {fileID: 0}
-  gridSize: {x: 5, y: 5, z: 5}
-  blockSpacing: 1.1
 --- !u!4 &768588913
 Transform:
   m_ObjectHideFlags: 0
@@ -425,6 +422,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &768588914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 768588911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdc9f18015c3292409f2a038a33ed9f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blockPrefab: {fileID: 7941991268558930196, guid: 22f1e6818fce86740b320806a5a1679f, type: 3}
+  sparklePrefab: {fileID: 0}
+  shapeData: {fileID: 11400000, guid: 3a90e14e991dc404fad9b2c8765ed6b3, type: 2}
+  blockSpacing: 1.1
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
